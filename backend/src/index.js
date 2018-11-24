@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 require('dotenv').config();
 const { MLAB_DB_USER, MLAB_DB_PASS } = process.env;
@@ -19,6 +20,7 @@ app.use((req, res, next) => {
   return next();
 });
 
+app.use(cors());
 app.use(express.json());
 app.use(require('./routes'));
 
